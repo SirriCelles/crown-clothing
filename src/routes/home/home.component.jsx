@@ -1,7 +1,7 @@
-import Home from "./routes/home/home.component";
+import Directory from "../../components/directory/directory.component";
 
 
-const App = () => {
+const Home = () => {
   const categories = [
     {
       "id": 1,
@@ -31,8 +31,8 @@ const App = () => {
   ];
   
   return (
-   <Home></Home>
+    <Directory categories={categories}></Directory>
   );
 };
 
-export default App;
+export default Home;
