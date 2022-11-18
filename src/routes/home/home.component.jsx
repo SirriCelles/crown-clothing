@@ -1,3 +1,7 @@
+// outlet for nested routes
+import { Outlet } from "react-router-dom";
+
+
 import Directory from "../../components/directory/directory.component";
 
 
@@ -31,7 +35,12 @@ const Home = () => {
   ];
   
   return (
-    <Directory categories={categories}></Directory>
+    <div>
+        
+        <Directory categories={categories}></Directory>
+        <Outlet></Outlet>
+    </div>
+   
   );
 };
 
