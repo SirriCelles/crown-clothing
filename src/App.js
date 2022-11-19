@@ -17,7 +17,7 @@ const App = () => {
           {/* This is a nexted Routed */}
         </Route>
       </Route>
-      <Route path="signin" element={<SingIn />}/>
+      <Route path="/sign-in" element={<SingIn />}/>
 
       {/* Adding Full Routes */}
       {/* <Route path="/shop" element={<Shop />} /> */}
