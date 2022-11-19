@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import Navigation from "./routes/home/navigation/navigation.component";
 import Home from "./routes/home/home.component";
 
 const Shop = () => {
@@ -9,13 +10,15 @@ const App = () => {
   
   return (
     <Routes>
-      {/* Adding Full Routes */}
-      <Route path="/shop" element={<Shop />} />
-      <Route path="/home" element={<Home />}>
-        <Route path="shop" element={ <Shop />}>
+      <Route path="/" element={<Navigation/>}>
+      <Route index={true} element={<Home />} />
+      <Route path="shop" element={ <Shop />}>
           {/* This is a nexted Routed */}
         </Route>
       </Route>
+
+      {/* Adding Full Routes */}
+      {/* <Route path="/shop" element={<Shop />} /> */}
     </Routes>
   
   );
