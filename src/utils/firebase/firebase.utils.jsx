@@ -48,7 +48,7 @@ export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
 // Signin with Redirect. This is because we instatiated just Google Provider
-export const signInWithGoogleRedirect  = () => signInWithGoogleRedirect(auth, provider);
+export const signInWithGoogleRedirect  = () => signInWithRedirect(auth, provider);
 
 
 // can access the DB. directly points to the dp inside the FB console
