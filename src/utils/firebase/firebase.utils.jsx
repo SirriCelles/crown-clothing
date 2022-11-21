@@ -44,7 +44,12 @@ provider.setCustomParameters({
 // Auth services should always be the same for the same APP
 export const auth = getAuth();
 
+// Signin with Google account popup
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+
+// Signin with Redirect. This is because we instatiated just Google Provider
+export const signInWithGoogleRedirect  = () => signInWithGoogleRedirect(auth, provider);
+
 
 // can access the DB. directly points to the dp inside the FB console
 export const db  = getFirestore();
