@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./routes/navigation/navigation.component";
 import Home from "./routes/home/home.component";
-import SingIn from "./routes/signin/sign-in.component";
+import Authentication from "./routes/authentication/authentication.component";
 
 const Shop = () => {
   return <h1>I am the shop page</h1>
@@ -17,7 +17,7 @@ const App = () => {
           {/* This is a nexted Routed */}
         </Route>
       </Route>
-      <Route path="/sign-in" element={<SingIn />}/>
+      <Route path="/auth" element={<Authentication />}/>
 
       {/* Adding Full Routes */}
       {/* <Route path="/shop" element={<Shop />} /> */}
