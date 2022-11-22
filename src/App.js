@@ -13,12 +13,12 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Navigation/>}>
       <Route index={true} element={<Home />} />
+      <Route path="auth" element={<Authentication />}/>
       <Route path="shop" element={ <Shop />}>
           {/* This is a nexted Routed */}
         </Route>
       </Route>
-      <Route path="/auth" element={<Authentication />}/>
-
+      
       {/* Adding Full Routes */}
       {/* <Route path="/shop" element={<Shop />} /> */}
     </Routes>
