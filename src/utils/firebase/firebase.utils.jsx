@@ -22,7 +22,11 @@ import {
     getFirestore, 
     doc, 
     getDoc, 
-    setDoc 
+    setDoc, 
+    collection,
+    writeBatch,
+    query,
+    getDocs
 } from "firebase/firestore";
 
 // Your web app's Firebase configuration
@@ -102,4 +106,38 @@ export const singInAuthUserWithEmailAndPAssword =  async (email, password) => {
 
 export const signOutUser = async () => await signOut(auth);
 
-export const onAuthStateChangedListener = (callback) => onAuthStateChanged(auth, callback);
+export const onAuthStateChangedListener =  (callback) => onAuthStateChanged(auth, callback);
+
+export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
+  const collectionRef = collection(db, collectionKey);
+  // Store each document into the collection ref as a document
+
+  // USE  THISa Batch for a successful transaction
+
+  // create batch instance
+  const batch = writeBatch(db);
+  // create a bunch of set events for each doc
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+
+  await batch.commit();
+
+  console.log('batch done')
+} 
+
+export const getCategoriesAndDocuments = async () => {
+  const collectionRef = collection(db, 'categories'); 
+  const q = query(collectionRef);
+
+  const querySnapshot = await getDocs(q);
+  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+    const { title, items} = docSnapshot.data();
+    acc[title.toLowerCase()] = items;
+    return acc;
+  }, {});
+
+  return categoryMap;
+
+}
