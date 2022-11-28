@@ -21,7 +21,7 @@
 
 This is hosted on the live demo link below.
 
-[Live Demo Link](https://)
+[Live Demo Link](https://radiant-sfogliatella-c66da1.netlify.app)
 
 
 # Getting Started with Create React App
