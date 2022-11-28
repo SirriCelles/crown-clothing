@@ -86,7 +86,7 @@ Give a ⭐️ if you like this project!
 ## Acknowledgments
 
 - [ZhangMYihua](https://github.com/ZhangMYihua) 
-- Zero to Mastery Academy
+- [Zero to Mastery](https://zerotomastery.io/git)
 
 ## Learn More
 
