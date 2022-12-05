@@ -1,6 +1,6 @@
-import { createContext, useState, useEffect} from "react";
+import { createContext, useEffect, useReducer} from "react";
 import { createUserDocumentFromAuth, onAuthStateChangedListener, signOutUser } from "../utils/firebase/firebase.utils";
-
+// useReducer hook is same as useState
 
 
 // As the actual value you want to access
@@ -9,20 +9,53 @@ export const UserContext = createContext({
   setCurrentUser: () => null,
 });
 
+export const USER_ACTION_TYPES = {
+  SET_CURRENT_USER: "SET_CURRENT_USER"
+}
+
+// reducers RE JUST methods that alwasy return a new object
+const userReducer =  (state, action) => {
+  // action only take {type} and optional {payload}
+  const {type, payload} = action;
+
+  switch(type) {
+    case USER_ACTION_TYPES.SET_CURRENT_USER:
+      return {
+        ...state,
+        currentUser: payload
+      }
+
+    default:
+      throw new Error(`unhandled type ${type} in userReducer`);
+  }
+}
+
+const INITIAL_STATE = {
+  currentUser: null,
+};
+
 // Actual component 
 // .Provider is the component that will wrap around any other component that needs access to the values stored inside the context
 export const UserProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(null);
+  // const [currentUser, setCurrentUser] = useState(null);
+
+  const [state, dispatch] = useReducer(userReducer, INITIAL_STATE);
+
+  const { currentUser } = state;
+
+  const setCurrentUser = (user) => {
+    dispatch({type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user});
+  }
+
   const value = { currentUser, setCurrentUser };
 
   signOutUser();
 
   // I only want ot run this fumction once WHEN the component mounts
   useEffect(() => {
-    const unsubscribe =  onAuthStateChangedListener(async (user) => {
-      console.log(user);
+    const unsubscribe =  onAuthStateChangedListener((user) => {
       if(user) {
-        await createUserDocumentFromAuth(user);
+        createUserDocumentFromAuth(user);
       }
       setCurrentUser(user);
     });
@@ -31,3 +64,7 @@ export const UserProvider = ({ children }) => {
   }, []);
   return <UserContext.Provider value={value}>{ children }</UserContext.Provider>
 }
+
+/*
+
+*/ 
