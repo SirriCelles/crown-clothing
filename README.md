@@ -2,6 +2,12 @@
 
 > Crown Clothing
 
+## Live Demo ()
+
+This is hosted on the live demo link below.
+
+[Live Demo Link](https://radiant-sfogliatella-c66da1.netlify.app)
+
 ## Built With
 
 ### Languages:
@@ -16,12 +22,6 @@
 
 ### Technologies used:
 -  _**GIT, GITHUB**_
-
-## Live Demo ()
-
-This is hosted on the live demo link below.
-
-[Live Demo Link](https://radiant-sfogliatella-c66da1.netlify.app)
 
 
 # Getting Started with Create React App
