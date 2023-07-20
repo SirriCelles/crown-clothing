@@ -1,8 +1,14 @@
 # Project Name
 
-> Crown Clothing
+> Crown Clothing: An E-commerce application built with React
+> Auth Screen
+> <img width="1680" alt="Screen Shot 2023-07-21 at 12 32 58 AM" src="https://github.com/SirriCelles/crown-clothing/assets/42035795/c234a6ff-d4e1-4d28-aaf6-d037f1ccf3f4">
+> The Display
+> <img width="1680" alt="Screen Shot 2023-07-21 at 12 34 09 AM" src="https://github.com/SirriCelles/crown-clothing/assets/42035795/d529c602-dbf5-48ee-8381-fd05d44e0ee6">
 
-## Live Demo ()
+
+
+## Live Demo [crwn-store](https://crwn-app-store.netlify.app/)
 
 This is hosted on the live demo link below.
 
@@ -16,7 +22,7 @@ This is hosted on the live demo link below.
 - SCSS
 - JavaScript
   
-###  Framworks and Libraries and Tools
+###  Frameworks and Libraries and Tools
 - Reactjs
 - FIREBASE
 
